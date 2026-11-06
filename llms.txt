@@ -1,0 +1,17 @@
+# @trysac/cursor-pagination
+
+> Opaque HMAC-signed keyset pagination cursors with expiry, key rotation, query binding and a parameterised SQL keyset predicate builder TypeScript library for Node.js 20+, published as ES modules with type declarations. MIT.
+
+## Docs
+
+- [README](README.md): problem, installation and usage example
+- [AGENTS.md](AGENTS.md): commands, folder map, conventions and limits for contributors and agents
+- [Architecture](docs/ARCHITECTURE.md): modules and boundaries
+- [Testing](docs/TESTING.md): how tests and coverage work
+- [Decisions](docs/decisions/0001-record-architecture-decisions.md): architecture decision records
+
+## Optional
+
+- [Stack](docs/STACK.md): tools used and discarded
+- [Project record](docs/PROJECT.md): objective, scope, timeline and effort metrics
+- [Changelog](CHANGELOG.md)

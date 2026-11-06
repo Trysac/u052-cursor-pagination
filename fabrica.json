@@ -1,0 +1,1 @@
+{"lang": "typescript", "package": "@trysac/cursor-pagination", "commands": {"install": [["npm", "install", "--no-audit", "--no-fund"]], "check": [["npm", "run", "check"]]}}
