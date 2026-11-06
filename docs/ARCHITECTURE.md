@@ -2,29 +2,26 @@
 
 ## Overview
 
-`@trysac/cursor-pagination` is a small, dependency-free TypeScript library published to npm as ES modules with type
-declarations. Opaque HMAC-signed keyset pagination cursors with expiry, key rotation, query binding and a parameterised SQL keyset predicate builder
+`@trysac/cursor-pagination` is a small, dependency-free TypeScript library published to npm as ES modules with type declarations. It provides HMAC-signed keyset pagination cursors with expiry, secret rotation and query binding, and a parameterised SQL keyset predicate builder. The only runtime import is `node:crypto`.
 
 ## Modules
 
 | Module | Responsibility |
 |---|---|
-| `src/index.ts` | Public API. Everything consumers import is exported from here. |
+| `src/index.ts` | Entire public API: cursor codec, `filterHash`, `paginate`, `buildKeysetPredicate`, `toSqlWhere` and the error classes. |
 
-Add a row when you add a module. Internal modules are not re-exported unless they are part of the public API.
+The library is a single module. Internal helpers in `src/index.ts` are not exported.
 
 ## Boundaries
 
-- No runtime dependencies by default; any addition is justified in [STACK.md](STACK.md).
-- No I/O at import time. Functions are pure unless their documentation says otherwise.
-- Errors are thrown as built-in error types (`TypeError`, `RangeError`) with actionable messages.
+- No runtime dependencies. The only built-in module used is `node:crypto` (`createHash`, `createHmac`, `timingSafeEqual`).
+- No I/O at import time. Functions are pure except `createCursorCodec`, which reads the injected clock when encoding or decoding.
+- Errors are thrown as `CursorError` subclasses (`InvalidCursorError`, `CursorConfigError`) with a stable `code`.
 
 ## Build and distribution
 
-`npm run build` compiles `src/` to `dist/` with `tsconfig.build.json`. Only `dist/` is published
-(`files` in `package.json`).
+`npm run build` compiles `src/` to `dist/` with `tsconfig.build.json`. Only `dist/` is published (`files` in `package.json`).
 
 ## Decisions
 
-Architectural decisions are recorded in [decisions/](decisions/), starting with
-[0001](decisions/0001-record-architecture-decisions.md).
+Architectural decisions are recorded in [decisions/](decisions/), starting with [0001](decisions/0001-record-architecture-decisions.md).
