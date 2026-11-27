@@ -1,7 +1,6 @@
 # cursor-pagination
 
-[![npm version](https://img.shields.io/npm/v/@trysac/cursor-pagination.svg)](https://www.npmjs.com/package/@trysac/cursor-pagination)
-[![license: MIT](https://img.shields.io/npm/l/@trysac/cursor-pagination.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/Trysac/u052-cursor-pagination/actions/workflows/ci.yml/badge.svg)](https://github.com/Trysac/u052-cursor-pagination/actions/workflows/ci.yml)
 
 Opaque HMAC-signed keyset pagination cursors with expiry, key rotation, query binding and a parameterised SQL keyset predicate builder.
@@ -16,9 +15,15 @@ Threat model: see [docs/SECURITY.md](docs/SECURITY.md).
 
 ## Install
 
+Not published to npm yet. Build it from a clone, then install it from the local path:
+
 ```sh
-npm install @trysac/cursor-pagination
+git clone https://github.com/Trysac/u052-cursor-pagination.git
+cd u052-cursor-pagination && npm ci && npm run build
+cd ../your-project && npm install ../u052-cursor-pagination
 ```
+
+Imports keep the package name: `import { ... } from "@trysac/cursor-pagination"`.
 
 Requires Node.js 20 or newer. The package ships ES modules with TypeScript declarations and has no runtime dependencies.
 
